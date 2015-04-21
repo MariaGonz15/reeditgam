@@ -4,9 +4,20 @@ console.log("#MariaGonzalez: Cargo app.js");
 modulo1.controller("mainCtrl",['$scope',
 	function ($scope){
 		$scope.test ="Hola Angular";
-		$scope.posts = [{title:"Post 1 Hola",upvotes:5},
-		{title:"Post 2", upvotes:15},
-		{title:"Post 3",upvotes:7},
-		{title:"Post 4".upvotes:9},
-		{title:"Post 5",upvotes:3},
-		{title:"Post 6",upvotes:5;}];
+
+		//modelo
+
+		$scope.posts = 
+		[{title: "Post 1 Hola", upvotes:5},
+		{title: "Post 2", upvotes:15},
+		{title: "Post 3", upvotes:7},
+		{title: "Post 4", upvotes:9},
+		{title: "Post 5", upvotes:3},
+		{title: "Post 6", upvotes:5;}];
+
+//metodo del controlador
+$scope.addPost = function (){};
+$scope.posts.push({title:"Nuevo Post",upvotes: 0});
+
+
+}]);

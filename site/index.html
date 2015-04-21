@@ -6,7 +6,8 @@
 	<title>	ReedItgam APP</title>
 </head>
 <body ng-app="reeditgam" ng-controller="mainCtrl" >
-	<div ng-repeat="post in `posts | orderBy: '-upvotes'">
+	<button ng-click="addPost()">Postear</button>
+	<div ng-repeat="post in posts | orderBy: '-upvotes'">
 
 		{{post.title}} - Likes: {{post.upvotes}}
 
