@@ -1,0 +1,16 @@
+{
+  "name": "Reeditgam",
+    "version": "0.0.0",
+    "main": "index.html",
+  "authors": [
+    "Socorro Carrillo <mac_maria07@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
