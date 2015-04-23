@@ -1,0 +1,29 @@
+[33mcommit 04d49371c48e8d9d1eb9d157b19d600cde6c8f8a[m
+Author: Socorro Carrillo <mac_maria07@hotmail.com>
+Date:   Wed Apr 22 22:32:51 2015 -0500
+
+    Hola Mundo Angular
+
+[33mcommit eb461ec5a7bd5a6995f89bbcf9e34ee503bf9474[m
+Author: Socorro Carrillo <mac_maria07@hotmail.com>
+Date:   Tue Apr 21 12:47:25 2015 -0500
+
+    04. Agregar nuevos post estaticos
+
+[33mcommit e5165691ca7671b76319aebe53042d2ee588fd92[m
+Author: Socorro Carrillo <mac_maria07@hotmail.com>
+Date:   Tue Apr 21 12:34:36 2015 -0500
+
+    03. post como objetos y ordenados
+
+[33mcommit 1d92c2ef752a8cdd57c57c43ec10f892506c4f1a[m
+Author: Socorro Carrillo <mac_maria07@hotmail.com>
+Date:   Tue Apr 21 12:19:05 2015 -0500
+
+    02. Post con ng-repeat
+
+[33mcommit fd96e5c33f86851bd85a7d00f58ab6abe85dc6d4[m
+Author: Socorro Carrillo <mac_maria07@hotmail.com>
+Date:   Tue Apr 21 11:51:02 2015 -0500
+
+    01. Hola Mundo Angular
