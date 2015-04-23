@@ -4,23 +4,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>	ReedItgam APP</title>
+<link rel="stylesheet"  
+href="./vendor/bootstrap/css/bootstrap.css">
+<style >
+	.glyphicon-thumbs-up{cursor: pointer;}
+</style>
+
+
 </head>
 <body ng-app="reeditgam" ng-controller="mainCtrl" >
 	 
 
 <!--Crear el formulario -->
-<form ng-submit="addPost()">
+<form  ng-submit="addPost()">
+
+	<!--input titulo-->
 	<input type="text" ng-model="title">
+	<br>
+
+	<!--input link-->
+	<input type="text" ng-model="link">
+	<br>
 <button type="submit">Post</button>	
 </form>
 
 
-
-
-
-
 	<div ng-repeat="post in posts | orderBy: '-upvotes'">
-		{{post.title}} - Likes: {{post.upvotes}} 
+		<span ng-click= "incrementUpvotes (post)">^</span> 
+<!--Agregar los links-->
+<a ng-show="post.link" href="{{post.link}}">
+{{post.title}} 
+</a>
+<span ng-hide= "post.link" >
+	{{post.title}}
+</span>
+		 - Likes: {{post.upvotes}}
+
  	</div>
 	<!--Cargando Librerias-->
 	<!--Es una buena practica al final-->

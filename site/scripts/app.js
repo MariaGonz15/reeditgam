@@ -27,12 +27,22 @@ return;
 
 $scope.posts.push(
 	{
-		title:$scope.title,upvotes: 0});
+		title:$scope.title,
+link: $scope.link,
+		upvotes: 0});
  //two-way data binding 	
+  //sirve para borrar o limpiar formulario
 $scope.title = "";
+$scope.link = "";
  };
 
+//metodo que incrementa el voto
 
+//De un post en una unidad
+$scope.incrementUpvotes = function (post){
+post.upvotes += 1;
+
+};
 
 }]);
 
