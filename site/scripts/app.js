@@ -27,14 +27,12 @@ return;
 
 $scope.posts.push(
 	{
-		title:$scope.title,
-link: $scope.link,
+		title:"Nuevo Post",
 		upvotes: 0});
  //two-way data binding 	
   //sirve para borrar o limpiar formulario
 $scope.title = "";
-$scope.link = "";
- };
+ }
 
 //metodo que incrementa el voto
 
