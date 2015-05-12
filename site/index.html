@@ -12,7 +12,15 @@ href="./vendor/bootstrap/css/bootstrap.css">
 <body ng-app="reeditgam" ng-controller="mainCtrl" >
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<div class="page-header">
+		<ui-view></ui-view><!--reenderea la vista y plantilla-->
+	</div>
+</div>
+
+<!--Crando plantillas-->
+<!--plantillas /home.html-->
+<script type="text/ng-template"
+id="/home.html">
+<div class="page-header">
 			<h1>Reeditgam</h1>
 					</div>
 			<!--Crear el formulario -->
@@ -57,8 +65,9 @@ class="btn btn-primary"
           </a>
 				</span>
 	</div>
-	</div>
-</div>
+</script>
+
+
 <!--Cargando Librerias-->
 	<!--Es una buena practica al final-->
 	<!-- Cargar los scripts	 -->
@@ -66,8 +75,15 @@ class="btn btn-primary"
 <script type="text/javascript"
 src="./vendor/angular/angular.js">
 	</script>
+
+<!--Cargando angular-ui-router-->
+<script type="text/javascript"
+src="./vendor/angular-ui-router/angular-ui-router.js">
+</script>
+
 <!-- 	Cargando app.js -->
-<script type="text/javascript" src="./scripts/app.js">	</script>
+<script type="text/javascript" 
+src="./scripts/app.js">	</script>
 
 	<!-- 	Cargando a jquery-->
 <script src="./vendor/jquery/jquery.js"></script>

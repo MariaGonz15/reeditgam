@@ -1,6 +1,39 @@
 console.log("#MariaGonzalez: Cargo app.js");
+
+ //inyectando el modulo de ui-router
+ //como parametro del arreglo de objetos 
+
+ //del modulo
  var modulo1=
- angular.module("reeditgam", []);
+ angular.module("reeditgam", ['ui.router']);
+//configurando las rutas
+//recibe un arreglo de elementos
+modulo1.config(
+	['$stateProvider', 
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+		//inciando rutina de configuracion
+		$stateProvider.state('home', {
+			//definiendo estado como un objeto 
+			url:"/home", //url que define el estado 
+			templateUrl:"/home.html",//platilla base para el estado
+			controller: 'mainCtrl' 
+					});
+
+//creando rutade visualizacion 
+// de post
+$stateProvider.state('posts',{
+	url:"/posts/{id}",
+	templateUrl:"/posts.html",
+	controller:"postsCtrl"
+});
+
+
+		//url por defecto 
+		$urlRouterProvider.otherwise('home');
+	}]);
+
+
  //creando un servicio del tipo factory
  modulo1.factory('posts',[function(){
  	//cuerpo del factory llamado post
@@ -24,7 +57,8 @@ console.log("#MariaGonzalez: Cargo app.js");
 return o;
  }]);
 
- //creando controlador//
+ //creando controlador
+ //dependency 
 
 modulo1.controller("mainCtrl",[
 	'$scope','posts',//inyectando factory post
@@ -66,3 +100,7 @@ post.upvotes += 1;
 
 }]);
 
+//creando el controlador postsCtrl
+modulo1.controller("postsCtrl",['$scope', 
+	'$stateParams',
+	'posts']);
