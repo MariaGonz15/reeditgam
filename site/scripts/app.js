@@ -5,7 +5,7 @@ console.log("#MariaGonzalez: Cargo app.js");
 
  //del modulo
  var modulo1=
- angular.module("reeditgam", ['ui.router']);
+ angular.module("reeditgam", ['ui.router','hSweetAlert']);
 //configurando las rutas
 //recibe un arreglo de elementos
 modulo1.config(
@@ -20,7 +20,7 @@ modulo1.config(
 			controller: 'mainCtrl' 
 					});
 
-//creando rutade visualizacion 
+//creando ruta +de visualizacion 
 // de post
 $stateProvider.state('posts',{
 	url:"/posts/{id}",
@@ -61,8 +61,8 @@ return o;
  //dependency 
 
 modulo1.controller("mainCtrl",[
-	'$scope','posts',//inyectando factory post
-	function ($scope, posts){
+	'$scope','posts','sweet',//inyectando factory post
+	function ($scope, posts, sweet){
 		$scope.test ="Hola Angular";
 
 		//modelo al cual se le asigna 
@@ -83,7 +83,18 @@ $scope.posts.push(
 	{
 		title:$scope.title,
 link: $scope.link,
-		upvotes: 0});
+		upvotes: 0,
+		comments : [{
+			author : "Gustavo",
+			body : "Me gusta ese link.",
+			upvotes : 0},
+			 {
+            author : "Keila",
+			body : "Awesome link.",
+			upvotes : 2 }]
+	});
+
+
  //two-way data binding 	
   //sirve para borrar o limpiar formulario
 $scope.title = "";
@@ -103,4 +114,23 @@ post.upvotes += 1;
 //creando el controlador postsCtrl
 modulo1.controller("postsCtrl",['$scope', 
 	'$stateParams',
-	'posts']);
+	'posts',
+	function($scope, $stateParams, posts)
+	{
+		$scope.incrementUpvotes = function (comment){
+			comment.upvotes += 1;
+
+		};
+//cuerpo del controlador
+//obteniendo el parametro id de los 
+//parametros del estado de la ruta
+//y pasandolo como argumentos 
+// al objeto del factory 
+$scope.post = posts.posts[$stateParams.id];
+
+	}]);
+
+
+
+
+

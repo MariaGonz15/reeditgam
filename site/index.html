@@ -8,6 +8,7 @@ href="./vendor/bootstrap/css/bootstrap.css">
 <style >
 	.glyphicon-thumbs-up{cursor: pointer;}
 </style>
+<link rel="stylesheet" href="./vendor/ngsweetalert/css/sweet-alert.css">
 </head>
 <body ng-app="reeditgam" ng-controller="mainCtrl" >
 <div class="row">
@@ -57,20 +58,61 @@ class="btn btn-primary"
 		{{post.upvotes}}
 		<span style="font-size:20px; margin-left:10px">
 		<!--Agregar los links-->
-        <span ng-hide= "post.link" >
-	     {{post.title}}
-          </span>
+        
           <a ng-show="post.link" href="{{post.link}}">
          {{post.title}} 
           </a>
+          <span ng-hide= "post.link" >
+	     {{post.title}}
+          </span>
 				</span>
+				<span>
+				<a href="#/posts/{{$index}}">
+				Comentarios.
+				</span>
+
 	</div>
+</script>
+
+
+
+
+
+<!--Creando la plantilla /post.html-->
+<script type="text/ng-template" id="/posts.html">
+	<div class="page-hearder">
+	<h3><!--//ng-show es atributo de angular-->
+		<a ng-show="post.link"  href="{{post.link}}"></a><!--//href es atributo de html-->
+		<span ng-hide="post.link">
+			{{post.title}}
+		</span>
+
+	</h3>
+</div>
+
+<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+	<span class "glyphicon glyphicon-thumbs-up"></span>
+	{{comment.upvotes}} - por {{comment.author}}
+	<span style="font-size:20px; margin-left:10px;">
+		{{comment.body}}
+	</span>
+	</div>
+
 </script>
 
 
 <!--Cargando Librerias-->
 	<!--Es una buena practica al final-->
 	<!-- Cargar los scripts	 -->
+
+<!-- 	Cargando a jquery-->
+<script src="./vendor/jquery/jquery.js"></script>
+	<!-- 	Cargando a bootstrap-->
+<script src="./vendor/bootstrap/js/bootstrap.js"></script>
+
+<!-- Cargando sweet alert -->
+<script src="./vendor/ngsweetalert/js/sweet-alert.min.js"></script>
+
 	<!-- 	Cargando a Angular -->
 <script type="text/javascript"
 src="./vendor/angular/angular.js">
@@ -81,14 +123,14 @@ src="./vendor/angular/angular.js">
 src="./vendor/angular-ui-router/angular-ui-router.js">
 </script>
 
+<!-- Se carga ngSweetAlert -->
+<script src="./vendor/ngsweetalert/js/ngSweetAlert.js"></script>
+
 <!-- 	Cargando app.js -->
 <script type="text/javascript" 
 src="./scripts/app.js">	</script>
 
-	<!-- 	Cargando a jquery-->
-<script src="./vendor/jquery/jquery.js"></script>
-	<!-- 	Cargando a bootstrap-->
-<script src="./vendor/bootstrap/js/bootstrap.js"></script>
+	
 
 </body>
 </html>
